@@ -60,10 +60,11 @@ public class KabupatenViewFrame extends JFrame {
             ResultSet rs = ps.executeQuery();
             DefaultTableModel dtm = (DefaultTableModel) viewTable.getModel();
             dtm.setRowCount(0);
-            Object[] row = new Object[2];
+            Object[] row = new Object[3];
             while (rs.next()) {
                 row[0] = rs.getInt("id");
                 row[1] = rs.getString("nama");
+                row[2] = rs.getString("tgl");
                 dtm.addRow(row);
             }
         } catch (SQLException ex) {
@@ -179,16 +180,20 @@ public class KabupatenViewFrame extends JFrame {
         try {
             Statement s = c.createStatement();
             ResultSet rs = s.executeQuery(selectSQL);
-            String header[] = {"Id", "Nama Kabupaten"};
+            String header[] = {"Id", "Nama Kabupaten", "Tanggal"};
             DefaultTableModel dtm = new DefaultTableModel(header, 0);
             viewTable.setModel(dtm);
 
             viewTable.removeColumn(viewTable.getColumnModel().getColumn(0));
+            viewTable.getColumnModel().getColumn(0).setMaxWidth(150);
+            viewTable.getColumnModel().getColumn(1).setMaxWidth(150);
 
-            Object[] row = new Object[2];
+
+            Object[] row = new Object[3];
             while (rs.next()) {
                 row[0] = rs.getInt("id");
                 row[1] = rs.getString("nama");
+                row[2] = rs.getString("tgl");
                 dtm.addRow(row);
             }
         } catch (SQLException e) {
