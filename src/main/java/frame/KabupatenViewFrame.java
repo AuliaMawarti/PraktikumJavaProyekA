@@ -20,6 +20,7 @@ public class KabupatenViewFrame extends JFrame{
 
     public KabupatenViewFrame(){
         init();
+
     }
 
     public void init() {
