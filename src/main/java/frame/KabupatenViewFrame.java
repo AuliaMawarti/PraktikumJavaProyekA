@@ -87,6 +87,11 @@ public class KabupatenViewFrame extends JFrame {
         });
         //end perintah hapus button
 
+        tambahButton.addActionListener(e -> {
+            KabupatenInputFrame inputFrame = new KabupatenInputFrame();
+            inputFrame.setVisible(true);
+        });
+
         isiTable();
         init();
 
