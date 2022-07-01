@@ -109,6 +109,9 @@ public class KabupatenViewFrame extends JFrame {
             String header[] = {"Id", "Nama Kabupaten"};
             DefaultTableModel dtm = new DefaultTableModel(header, 0);
             viewTable.setModel(dtm);
+
+            viewTable.removeColumn(viewTable.getColumnModel().getColumn(0));
+
             Object[] row = new Object[2];
             while (rs.next()) {
                 row[0] = rs.getInt("id");
